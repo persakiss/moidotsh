@@ -16,9 +16,9 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
           <div className="row-start-2 col-start-4 col-span-3">
             <MountainContainer className={"row-start-2 col-start-4 col-span-3"} colorGroup="top-right"/>
           </div>
-          <div className="row-start-2 col-span-3 b">
-            <div className="grid grid-rows-2">
-              <MountainContainer colorGroup="top-left"/>
+          <div className="row-start-2 col-span-3">
+            <div className="grid">
+              <MountainContainer colorGroup="top-left" className="grid-rows-2"/>
             </div>
           </div>
         </Sun>

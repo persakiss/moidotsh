@@ -16,7 +16,6 @@ pnpm dev
 
 Next MPA with smooth transitions in lieu of the view transitions API. MPA is important for SEO, and smooth transitions using next/framer (instead of astro+view transitions) would get everybody. Relying on view transitions not feasible at this stage as 90% visitors are mobile, and mobile + safari + firefox not supported yet. 
 
-There's a lot that can be done here as a product placement shop leveraging midjourney as the origin and generative fill on photoshop as the directional movements transitioned to in different routes.
+My portfolio website, work in project. 
 
-Demo:  [next-framer-test.vercel.app](https://next-framer-test.vercel.app)
 # moidotsh

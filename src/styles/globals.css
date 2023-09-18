@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+html {
+
+  /* background-image: url("../assets/wall-ledge.png"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+}
+body,
+html {
+  height: 100%;
+}
+
+.spill {
+  /* background: rgba(245, 245, 245, 0.1); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  height: 100%;
+}
+
+
+
+.ledge {
+  background-image: url("../assets/ledge.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  padding-top: 3rem;
+  height: 100vh;
+}
+
+.plate { 
+  background-image: url("../assets/plate-top.png");
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  will-change: transform;
+}
+
+.device {   
+  background-image: url("../assets/device.png");
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  will-change: transform;
+  animation: slide 8s ease-in-out infinite;
+}
+
+.stone {
+
+  background-image: url("../assets/stone-top.png");
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  will-change: transform;
+}
+
+.plant {
+
+  background-image: url("../assets/plant-top.png");
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  will-change: transform;
+}
+
+@keyframes slide {
+  0% {
+      transform: translate(0, -2rem);
+  }
+  50% {
+    transform: translate(0, -3rem);
+  }
+  100% {
+    transform: translate(0, -2rem);
+  }
+}
+
+.page2 {
+  background-image: url("../assets/plant.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  will-change: transform;
+}
+
+.page3 {
+  background-image: url("../assets/statue.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  will-change: transform;
+}
+
+.page4 {
+  background-image: url("../assets/plant-top.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  will-change: transform;
+}
+
+.page5 {
+  background-image: url("../assets/beach.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  will-change: transform;
+}
+
+nav {
+  background-color: transparent;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  text-align: center;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline;
+  padding: 1rem;
+  margin: auto;
+  align-self: center;
+}
+
+.page0,
+.page1,
+.page2,
+.page3,
+.page4,
+.page5 {
+  /* padding-top: 3rem; */
+  height: 100vh;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+h2 {
+  font-size: xx-large;
+  text-decoration: underline;
+}
+
+h2:hover {
+  text-decoration: none;
+}

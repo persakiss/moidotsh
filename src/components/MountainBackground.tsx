@@ -30,7 +30,10 @@ const MountainBackground = ({
   const colors = colorGroups[colorGroup];
   const centralPeak = getRandomPeak(80, 90);
 
-  const isWideScreen = typeof window !== "undefined" && window.innerWidth > 768;
+  const isWideScreen = true;
+
+ //
+ //const isWideScreen = typeof window !== "undefined" && window.innerWidth > 768;
 
   const isTopLeft = colorGroup === "top-left";
   const isTopRight = colorGroup === "top-right";

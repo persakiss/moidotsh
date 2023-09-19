@@ -126,7 +126,7 @@ const MountainBackground = ({
         return (
           <div
             key={index}
-            className="absolute h-full transform"
+            className="absolute h-full transform will-change-transform"
             style={{ ...mountainStyle, transform: heightAdjustment }}
           ></div>
         );

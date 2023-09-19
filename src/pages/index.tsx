@@ -3,7 +3,9 @@
 import PageTransition from "@/components/PageTransition";
 import { forwardRef } from "react";
 import MountainContainer from "@/components/MountainContainer";
+import Background from "@/components/Background";
 import Sun from "@/components/Sun";
+
 
 type IndexPageProps = {};
 type IndexPageRef = React.ForwardedRef<HTMLDivElement>;
@@ -12,16 +14,17 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
   return (
     <PageTransition ref={ref}>
       <div className="page1 h-screen">
-        <Sun>
-          <div className="row-start-2 col-start-4 col-span-3">
-            <MountainContainer className={"row-start-2 col-start-4 col-span-3"} colorGroup="top-right"/>
-          </div>
-          <div className="row-start-2 col-span-3">
-            <div className="grid">
-              <MountainContainer colorGroup="top-left" className="grid-rows-2"/>
-            </div>
-          </div>
-        </Sun>
+        <Background>
+          <MountainContainer className={"row-start-2 col-start-7 col-span-5 -mr-36"} colorGroup="top-right" />
+          <Sun className={"row-start-2 col-start-6 col-span-2"} />
+          <MountainContainer className={"row-start-2 col-span-5 -ml-36"} colorGroup="top-left" />
+        </Background>
+        <div className="bg-gradient-to-t from-lime-100 via-lime-100 to-rose-100 h-96 overflow-x-hidden grid grid-rows-2 grid-cols-11">
+          <MountainContainer className={"row-start-1 col-span-3 h-full -ml-36"} colorGroup="bottom-left" />
+          <MountainContainer className={"row-start-1 col-start-8 col-span-4 h-full -mr-36"} colorGroup="bottom-right" />
+        </div>
+        <div className="grid grid-rows-1 grid-cols-11">
+        </div>
       </div>
     </PageTransition>
   );

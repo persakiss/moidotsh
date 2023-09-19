@@ -27,29 +27,34 @@ const MountainBackground = ({ colorGroup }: MountainBackgroundProps) => {
 
   const isWideScreen = typeof window !== "undefined" && window.innerWidth > 768;
 
+const isTopLeft = colorGroup === "top-left";
+const isTopRight = colorGroup === "top-right";
 
 const generatePeaks = () => {
-  return isWideScreen ? 
-  [
-    '0% 100%',
-    `10% ${getRandomPeak(60, 80).percentage}`,
-    `20% ${getRandomPeak(50, 90).percentage}`,
-    `30% ${getRandomPeak(65, 85).percentage}`,
-    `40% ${getRandomPeak(60, 80).percentage}`,
-    `50% ${getRandomPeak(75, 90).percentage}`,
-    `60% ${getRandomPeak(60, 80).percentage}`,
-    `70% ${getRandomPeak(65, 85).percentage}`,
-    `80% ${getRandomPeak(50, 90).percentage}`,
-    `90% ${getRandomPeak(60, 80).percentage}`,
-    '100% 100%'
-  ] : [
-    '0% 100%',
-    `25% ${getRandomPeak(50, 75).percentage}`,
-    `50% ${getRandomPeak(80, 90).percentage}`,
-    `75% ${getRandomPeak(50, 75).percentage}`,
-    '100% 100%'
-  ];
-}
+  if (isWideScreen) {
+    return [
+      '0% 100%',
+      `10% ${getRandomPeak(85, 95).percentage}`,
+      `20% ${isTopLeft ? getRandomPeak(50, 70).percentage : getRandomPeak(70, 85).percentage}`,
+      `30% ${isTopLeft ? getRandomPeak(45, 65).percentage : getRandomPeak(75, 90).percentage}`,
+      `40% ${isTopLeft ? getRandomPeak(40, 60).percentage : getRandomPeak(80, 95).percentage}`,
+      `50% ${getRandomPeak(75, 90).percentage}`,
+      `60% ${isTopRight ? getRandomPeak(40, 60).percentage : getRandomPeak(80, 95).percentage}`,
+      `70% ${isTopRight ? getRandomPeak(45, 65).percentage : getRandomPeak(75, 90).percentage}`,
+      `80% ${isTopRight ? getRandomPeak(50, 70).percentage : getRandomPeak(70, 85).percentage}`,
+      `90% ${getRandomPeak(85, 95).percentage}`,
+      '100% 100%'
+    ];
+  } else {
+    return [
+      '0% 100%',
+      `25% ${isTopLeft ? getRandomPeak(45, 65).percentage : getRandomPeak(75, 90).percentage}`,
+      `50% ${getRandomPeak(80, 90).percentage}`,
+      `75% ${isTopRight ? getRandomPeak(45, 65).percentage : getRandomPeak(75, 90).percentage}`,
+      '100% 100%'
+    ];
+  }
+};
 
 
   const mountainPeaks = Array.from({ length: colors.length }, () => generatePeaks());
@@ -63,7 +68,7 @@ const generatePeaks = () => {
           backgroundColor: color,
           width: "100%",
         };
-        return <div key={index} className="absolute h-64" style={mountainStyle}></div>;
+        return <div key={index} className="absolute h-full" style={mountainStyle}></div>;
       })}
     </>
   );

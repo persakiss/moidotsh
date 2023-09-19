@@ -1,16 +1,16 @@
-import React, { ReactNode } from "react"
+import React from 'react'
 
-type SunProps = {
-  children: ReactNode;
-}
+type Props = {
+    className: string;
+  }
 
-const Sun = ({ children }: SunProps) => {
-
+export default function Sun({className}: Props) {
   return (
-    <div className="bg-gradient-to-t from-amber-100 via-yellow-100 to-rose-300 h-3/5 grid grid-cols-6 grid-rows-2">
-      {children}
+    <div className={className + '  grid grid-rows-6'}>
+
+        <div className=' row-start-5 w-44 h-44 bg-yellow-200 rounded-full'>
+      </div>
     </div>
+
   )
 }
-
-export default Sun;

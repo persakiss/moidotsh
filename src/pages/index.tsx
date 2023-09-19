@@ -26,7 +26,7 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
 
   return (
     <PageTransition ref={ref}>
-      <div className="page1 h-screen">
+      <div className="page1 h-screen overflow-x-hidden">
         <Background>
           <div className="row-start-1 col-start-1 col-span-1 relative"></div>
           <div className="row-start-1 col-start-6 col-span-1 relative"></div>
@@ -100,7 +100,7 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
             colorGroup="bottom-right"
           />
         </div>
-        <div className="bg-gradient-to-t  from-lime-200 via-lime-100 to-lime-100 h-36 grid grid-rows-2 grid-cols-11">
+        <div className="bg-gradient-to-t  from-lime-200 via-lime-100 to-lime-100 h-36 grid grid-rows-2 grid-cols-11 overflow-x-hidden">
 
           <div className="col-start-8 col-span-3 row-start-1 opacity-25 w-4/12 scale-x-[600%] ml-96 ">
             {bottomRightMountainDetails.map((detail, index) => {

@@ -26,7 +26,7 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
           <MountainContainer setMountainDetails={setTopLeftMountainDetails} className={"row-start-2 col-span-5 -ml-36"} colorGroup="top-left" />
         </Background>
         <div className="bg-gradient-to-t from-lime-100 via-lime-100 to-rose-100 h-36 overflow-x-hidden grid grid-rows-2 grid-cols-11">
-          <div className="reflectionContainer col-span-4 border row-start-1 opacity-25">
+          <div className="reflectionContainer col-span-4 row-start-1 opacity-25">
             {topLeftMountainDetails.map((detail, index) => {
               const reflectedMountainStyle = {
                 clipPath: `polygon(${detail.peaks.join(", ")})`,
@@ -55,7 +55,7 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
             })}
           </div>
 
-          <MountainContainer setMountainDetails={setBottomLeftMountainDetails} className={"row-start-2 col-span-3 -ml-36 border align-top"} colorGroup="bottom-left" />
+          <MountainContainer setMountainDetails={setBottomLeftMountainDetails} className={"row-start-2 col-span-3 -ml-36 align-top"} colorGroup="bottom-left" />
           <MountainContainer setMountainDetails={setBottomRightMountainDetails} className={"row-start-2 col-start-8 col-span-4 h-full -mr-36"} colorGroup="bottom-right" />
         </div>
         <div className="grid grid-rows-1 grid-cols-11">

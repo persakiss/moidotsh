@@ -93,6 +93,7 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
             className={"row-start-2 col-span-3 -ml-36 align-top"}
             colorGroup="bottom-left"
           />
+          
           <MountainContainer
             setMountainDetails={setBottomRightMountainDetails}
             className={"row-start-2 col-start-8 col-span-4 h-full -mr-36"}

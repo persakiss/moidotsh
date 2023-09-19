@@ -28,12 +28,8 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
     <PageTransition ref={ref}>
       <div className="page1 h-screen">
         <Background>
-
-          <div className="row-start-1 col-start-1 col-span-1 relative">
-
-          </div>
-          <div className="row-start-1 col-start-6 col-span-1 relative">
-          </div>
+          <div className="row-start-1 col-start-1 col-span-1 relative"></div>
+          <div className="row-start-1 col-start-6 col-span-1 relative"></div>
           <MountainContainer
             setMountainDetails={setTopRightMountainDetails}
             className={"row-start-2 col-start-7 col-span-5 -mr-36"}
@@ -46,7 +42,7 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
             colorGroup="top-left"
           />
         </Background>
-        <div className="bg-gradient-to-t overflow-hidden from-lime-100 via-lime-100 to-rose-100 h-36 grid grid-rows-2 grid-cols-11">
+        <div className="bg-gradient-to-t  from-lime-100 via-lime-100 to-rose-100 h-36 grid grid-rows-2 grid-cols-11">
           {/* Container has to be relative, the mapped return has to be absolute, componentize this */}
           <div className="row-start-1 col-span-5 opacity-25 relative">
             {topLeftMountainDetails.map((detail, index) => {
@@ -90,16 +86,62 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
 
           <MountainContainer
             setMountainDetails={setBottomLeftMountainDetails}
-            className={"row-start-2 col-span-3 -ml-36 align-top"}
+            className={
+              "row-start-2 col-span-3 bottom-[400%] w-3/12 scale-[600%] z-[100]"
+            }
             colorGroup="bottom-left"
           />
+
           <MountainContainer
             setMountainDetails={setBottomRightMountainDetails}
-            className={"row-start-2 col-start-8 col-span-4 h-full -mr-36"}
+            className={
+              "row-start-2 col-start-8 col-span-4  bottom-[400%] w-3/12 scale-[600%] z-[100] ml-96"
+            }
             colorGroup="bottom-right"
           />
         </div>
-        <div className="grid grid-rows-1 grid-cols-11"></div>
+        <div className="bg-gradient-to-t  from-lime-200 via-lime-100 to-lime-100 h-36 grid grid-rows-2 grid-cols-11">
+
+          <div className="col-start-8 col-span-3 row-start-1 opacity-25 w-4/12 scale-x-[600%] ml-96 ">
+            {bottomRightMountainDetails.map((detail, index) => {
+              const reflectedMountainStyle = {
+                clipPath: `polygon(${detail.peaks.join(", ")})`,
+                zIndex: 100 - index * 10,
+                backgroundColor: detail.color,
+                width: "100%",
+                transform: "scaleY(-1) scaleX(1)", // Flip both vertically and horizontally
+              };
+
+              return (
+                <div
+                  key={index}
+                  className="absolute h-32 w-fit"
+                  style={reflectedMountainStyle}
+                ></div>
+              );
+            })}
+          </div>
+
+          <div className="row-start-1 col-span-5 opacity-25 relative">
+            {bottomLeftMountainDetails.map((detail, index) => {
+              const reflectedMountainStyle = {
+                clipPath: `polygon(${detail.peaks.join(", ")})`,
+                zIndex: 100 - index * 10,
+                backgroundColor: detail.color,
+                width: "52%",
+                transform: "scaleY(-1) ",
+              };
+
+              return (
+                <div
+                  key={index}
+                  className=" h-32 absolute w-fit"
+                  style={reflectedMountainStyle}
+                ></div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </PageTransition>
   );

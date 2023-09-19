@@ -25,19 +25,20 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
           <Sun className={"row-start-2 col-start-6 col-span-2"} />
           <MountainContainer setMountainDetails={setTopLeftMountainDetails} className={"row-start-2 col-span-5 -ml-36"} colorGroup="top-left" />
         </Background>
-        <div className="bg-gradient-to-t from-lime-100 via-lime-100 to-rose-100 h-36 overflow-x-hidden grid grid-rows-2 grid-cols-11">
-          <div className="reflectionContainer col-span-4 row-start-1 opacity-25">
+        <div className="bg-gradient-to-t from-lime-100 via-lime-100 to-rose-100 h-36 grid grid-rows-2 grid-cols-11">
+          
+          <div className="row-start-1 col-span-5 opacity-25 relative">
             {topLeftMountainDetails.map((detail, index) => {
               const reflectedMountainStyle = {
                 clipPath: `polygon(${detail.peaks.join(", ")})`,
                 zIndex: 100 - index * 10,
                 backgroundColor: detail.color,
                 width: "100%",
-                marginLeft: "-36rem", // - rem to get it to start mid-mountain. might be a better way to achieve this
-                transform: "scaleY(-1) scaleX(-1)", // Flip both vertically and horizontally
+                marginLeft: "", // - rem to get it to start mid-mountain. might be a better way to achieve this
+                transform: "scaleY(-1)", // Flip both vertically and horizontally
               };
 
-              return <div key={index} className="absolute h-32" style={reflectedMountainStyle}></div>;
+              return <div key={index} className=" h-32 absolute w-fit" style={reflectedMountainStyle}></div>;
             })}
           </div>
 

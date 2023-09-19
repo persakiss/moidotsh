@@ -44,6 +44,7 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
         </Background>
         <div className="bg-gradient-to-t  from-lime-100 via-lime-100 to-rose-100 h-36 grid grid-rows-2 grid-cols-11">
           {/* Container has to be relative, the mapped return has to be absolute, componentize this */}
+
           <div className="row-start-1 col-span-5 opacity-25 relative scale-x-150 w-[80%]">
             {topLeftMountainDetails.map((detail, index) => {
               const reflectedMountainStyle = {
@@ -64,7 +65,9 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
             })}
           </div>
 
-          <div className="col-start-8 -ml-2 col-span-4 row-start-1 opacity-25 relative scale-x-150 ml-1 ">
+
+          <div className="col-start-8 col-span-4 row-start-1 opacity-25 relative scale-x-150 ml-1">
+
             {topRightMountainDetails.map((detail, index) => {
               const reflectedMountainStyle = {
                 clipPath: `polygon(${detail.peaks.join(", ")})`,
@@ -122,14 +125,18 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
               );
             })}
           </div>
+
           <div className="col-start-8 col-span-3 row-start-1 opacity-25 w-4/12 scale-x-[600%] ml-96 ">
             {bottomRightMountainDetails.map((detail, index) => {
+
               const reflectedMountainStyle = {
                 clipPath: `polygon(${detail.peaks.join(", ")})`,
                 zIndex: 100 - index * 10,
                 backgroundColor: detail.color,
                 width: "100%",
-                transform: "scaleY(-1) scaleX(1)", // Flip both vertically and horizontally
+
+                transform: "scaleY(-1) ",
+
               };
 
               return (

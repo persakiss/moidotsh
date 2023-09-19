@@ -12,8 +12,7 @@ function About(props: AboutPageProps, ref: AboutPageRef) {
     <>
       <PageTransition ref={ref}>
         <div className="page2">
-          <div className="stone">
-          </div>
+          <h2>test</h2>
         </div>
       </PageTransition >
     </>

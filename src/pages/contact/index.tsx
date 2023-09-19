@@ -6,7 +6,6 @@ import { forwardRef } from "react";
 import MountainContainer from "@/components/MountainContainer";
 import Background from "@/components/Background";
 import Sun from "@/components/Sun";
-import Bird from "@/components/Bird";
 
 type IndexPageProps = {};
 type IndexPageRef = React.ForwardedRef<HTMLDivElement>;

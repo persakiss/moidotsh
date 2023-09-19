@@ -87,11 +87,11 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
           <MountainContainer
             setMountainDetails={setBottomLeftMountainDetails}
             className={
-              "row-start-2 col-span-3 bottom-[400%] w-3/12 scale-[600%] z-[100]"
+              "row-start-2 col-span-3 bottom-[400%] w-3/12 scale-[600%] will-change-transform z-[100]"
             }
             colorGroup="bottom-left"
           />
-
+          
           <MountainContainer
             setMountainDetails={setBottomRightMountainDetails}
             className={
@@ -122,13 +122,13 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
             })}
           </div>
 
-          <div className="row-start-1 col-span-5 opacity-25 relative">
+          <div className="row-start-1 col-span-3 opacity-25 scale-x-[600%] w-3/12 -ml-30">
             {bottomLeftMountainDetails.map((detail, index) => {
               const reflectedMountainStyle = {
                 clipPath: `polygon(${detail.peaks.join(", ")})`,
                 zIndex: 100 - index * 10,
                 backgroundColor: detail.color,
-                width: "52%",
+                width: "100%",
                 transform: "scaleY(-1) ",
               };
 

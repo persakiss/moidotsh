@@ -1,6 +1,6 @@
 // MountainBackground.tsx
 
-import React, {useEffect} from 'react';
+import React, { useEffect, useMemo } from 'react';
 
 function getRandomPeak(min: number, max: number) {
   const value = Math.floor(Math.random() * (max - min + 1) + min);
@@ -60,7 +60,10 @@ const MountainBackground = ({ colorGroup, setMountainDetails }: MountainBackgrou
   };
 
 
-  const mountainPeaks = Array.from({ length: colors.length }, () => generatePeaks());
+  // useMemo saved the infinite loop here
+  const mountainPeaks = useMemo(() => {
+    return Array.from({ length: colors.length }, () => generatePeaks());
+  }, [colors, isWideScreen]);
 
 
   useEffect(() => {

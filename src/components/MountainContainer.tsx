@@ -6,9 +6,10 @@ import MountainBackground from "@/components/MountainBackground";
 interface MountainContainerProps {
   className?: string;
   colorGroup: 'top-left' | 'top-right' | 'bottom-right' | 'bottom-left';
+  setMountainDetails: (details: any[]) => void;  // We're making this prop mandatory here
 }
 
-const MountainContainer = ({ colorGroup, className }: MountainContainerProps) => {
+const MountainContainer = ({ setMountainDetails, colorGroup, className }: MountainContainerProps) => {
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -27,7 +28,7 @@ const MountainContainer = ({ colorGroup, className }: MountainContainerProps) =>
 
   return (
     <div className={'relative ' + className}>
-      {isMounted && <MountainBackground colorGroup={colorGroup} />}
+      {isMounted && <MountainBackground colorGroup={colorGroup} setMountainDetails={setMountainDetails} />}
     </div>
   );
 };

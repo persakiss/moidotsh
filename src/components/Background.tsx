@@ -1,3 +1,5 @@
+// Background.tsx
+
 import React, { ReactNode } from "react"
 
 type BackgroundProps = {

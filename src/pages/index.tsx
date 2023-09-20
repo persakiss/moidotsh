@@ -6,6 +6,7 @@ import { forwardRef } from "react";
 import MountainContainer from "@/components/MountainContainer";
 import Background from "@/components/Background";
 import Sun from "@/components/Sun";
+import { theme } from "@/styles/themes";
 
 type IndexPageProps = {};
 type IndexPageRef = React.ForwardedRef<HTMLDivElement>;
@@ -26,10 +27,8 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
 
   return (
     <PageTransition ref={ref}>
-      <div className="page1 h-screen overflow-x-hidden">
+      <div className="page1 h-screen overflow-x-hidden overflow-y-hidden">
         <Background>
-          <div className="row-start-1 col-start-1 col-span-1 relative"></div>
-          <div className="row-start-1 col-start-6 col-span-1 relative"></div>
           <MountainContainer
             setMountainDetails={setTopRightMountainDetails}
             className={"row-start-2 col-start-7 col-span-5 -mr-36"}
@@ -42,9 +41,12 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
             colorGroup="top-left"
           />
         </Background>
-        <div className="bg-gradient-to-t  from-lime-100 via-lime-100 to-rose-100 h-36 grid grid-rows-2 grid-cols-11">
-          {/* Container has to be relative, the mapped return has to be absolute, componentize this */}
 
+        {/* Using style here because can't interpolate js to tailwind util classes. But it's only bg colours so it's not a big deal */}
+        <div style={{
+          background: `linear-gradient(to top, ${theme.lakeColors.top.gradientStart}, ${theme.lakeColors.top.gradientMid}, ${theme.lakeColors.top.gradientEnd})`,
+        }}
+          className="h-1/5 grid grid-rows-2 grid-cols-11">
           <div className="row-start-1 col-span-5 opacity-25 relative scale-x-150 w-[80%]">
             {topLeftMountainDetails.map((detail, index) => {
               const reflectedMountainStyle = {
@@ -52,7 +54,7 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
                 zIndex: 100 - index * 10,
                 backgroundColor: detail.color,
                 width: "100%",
-                transform: "scaleY(-1)", // Flip both vertically and horizontally
+                transform: "scaleY(-1)", 
               };
 
               return (
@@ -105,7 +107,9 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
         </div>
 
 
-        <div className="bg-gradient-to-t  from-lime-200 via-lime-100 to-lime-100 h-36 grid grid-rows-2 grid-cols-11 overflow-x-hidden">
+        <div style={{
+          background: `linear-gradient(to top, ${theme.lakeColors.middle.gradientStart}, ${theme.lakeColors.middle.gradientMid}, ${theme.lakeColors.middle.gradientEnd})`}}
+          className="h-1/5 grid grid-rows-2 grid-cols-11 overflow-x-hidden" >
           <div className="row-start-1 col-span-7 opacity-25 w-[11%] scale-x-[600%]">
             {bottomLeftMountainDetails.map((detail, index) => {
               const reflectedMountainStyle = {
@@ -150,8 +154,12 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
           </div>
 
         </div>
-      </div>
-    </PageTransition>
+
+      <div
+      style={{ backgroundColor: theme.lakeColors.bottom}}
+      className="h-1/5"></div>
+    </div>
+    </PageTransition >
   );
 }
 

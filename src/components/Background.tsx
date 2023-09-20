@@ -1,6 +1,7 @@
 // Background.tsx
 
 import React, { ReactNode } from "react"
+import { theme } from "@/styles/themes"
 
 type BackgroundProps = {
   children: ReactNode;
@@ -8,9 +9,13 @@ type BackgroundProps = {
 
 const Background = ({ children }: BackgroundProps) => {
 
+  const backgroundStyle = {
+    background: `linear-gradient(to top, ${theme.backgroundGradient.start}, ${theme.backgroundGradient.middle}, ${theme.backgroundGradient.end})`,
+  }
+
   return (
-    <div className="overflow-hidden bg-gradient-to-t from-amber-100 
-    via-yellow-100 to-rose-300 h-3/5 grid grid-cols-11 grid-rows-2">
+    <div style={backgroundStyle} className="overflow-hidden 
+    h-2/5 grid grid-cols-11 grid-rows-2">
       {children}
     </div>
   )

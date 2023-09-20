@@ -1,27 +1,29 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 
 type Props = {};
 
-function Nav({}: Props) {
+function Nav({ }: Props) {
+  const router = useRouter();
+
+
+  // Abstracted this for some reason
+  const linkMaker = (path: string, name: string, style: string, offStyle = '') => {
+    return (
+      <li className={router.pathname === path ? style : offStyle}>
+        <Link href={path} scroll={false}>{name}</Link>
+      </li>
+    )
+  }
+
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link href="/" scroll={false}>Home</Link>
-        </li>
-        <li>
-          <Link href="/about" scroll={false}>About</Link>
-        </li>
-        <li>
-          <Link href="/science" scroll={false}>Science</Link>
-        </li>
-        <li>
-          <Link href="/cart" scroll={false}>Cart</Link>
-        </li>
-        <li>
-          <Link href="/contact" scroll={false}>Contact</Link>
-        </li>
+    <nav className="w-full flex mt-10">
+      <ul className="flex-auto">
+       {linkMaker('/',          'Home', 'underline')}
+       {linkMaker('/projects',  'Projects', 'underline')}
+       {linkMaker('/skills',    'Skills', 'underline')}
+       {linkMaker('/contact',   'Contact', 'underline')}
       </ul>
     </nav>
   );

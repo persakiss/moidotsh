@@ -28,7 +28,7 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
 
   return (
     <PageTransition ref={ref}>
-      <div className="page3 h-screen overflow-x-hidden overflow-y-hidden">
+      <div className="page2 h-screen overflow-x-hidden overflow-y-hidden">
         <Background>
           <MountainContainer
             setMountainDetails={setTopRightMountainDetails}

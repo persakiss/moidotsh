@@ -5,7 +5,7 @@ type MountainReflectionProps = {
   flipHorizontally?: boolean,
 };
 
-const MountainReflection: React.FC<MountainReflectionProps> = ({ details, flipHorizontally = false }) => {
+const MountainReflection = ({ details, flipHorizontally = false }: MountainReflectionProps) => {
   return (
     <>
       {details.map((detail, index) => {

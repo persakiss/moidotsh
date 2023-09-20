@@ -7,6 +7,7 @@ import MountainContainer from "@/components/MountainContainer";
 import Background from "@/components/Background";
 import Sun from "@/components/Sun";
 import { theme } from "@/styles/themes";
+import MountainReflection from "@/components/MountainReflection";
 
 type IndexPageProps = {};
 type IndexPageRef = React.ForwardedRef<HTMLDivElement>;
@@ -41,55 +42,17 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
             colorGroup="top-left"
           />
         </Background>
-
         {/* Using style here because can't interpolate js to tailwind util classes. But it's only bg colours so it's not a big deal */}
         <div style={{
           background: `linear-gradient(to top, ${theme.lakeColors.top.gradientStart}, ${theme.lakeColors.top.gradientMid}, ${theme.lakeColors.top.gradientEnd})`,
         }}
           className="h-1/5 grid grid-rows-2 grid-cols-11">
           <div className="row-start-1 col-span-5 opacity-25 relative scale-x-150 w-[80%]">
-            {topLeftMountainDetails.map((detail, index) => {
-              const reflectedMountainStyle = {
-                clipPath: `polygon(${detail.peaks.join(", ")})`,
-                zIndex: 100 - index * 10,
-                backgroundColor: detail.color,
-                width: "100%",
-                transform: "scaleY(-1)", 
-              };
-
-              return (
-                <div
-                  key={index}
-                  className=" h-32 absolute w-fit"
-                  style={reflectedMountainStyle}
-                ></div>
-              );
-            })}
+            <MountainReflection details={topLeftMountainDetails} />
           </div>
-
-
           <div className="col-start-8 col-span-4 row-start-1 opacity-25 relative scale-x-150 ml-1">
-
-            {topRightMountainDetails.map((detail, index) => {
-              const reflectedMountainStyle = {
-                clipPath: `polygon(${detail.peaks.join(", ")})`,
-                zIndex: 100 - index * 10,
-                backgroundColor: detail.color,
-                width: "100%",
-                transform: "scaleY(-1) scaleX(1)", // Flip both vertically and horizontally
-              };
-
-              return (
-                <div
-                  key={index}
-                  className="absolute h-32 w-fit"
-                  style={reflectedMountainStyle}
-                ></div>
-              );
-            })}
+            <MountainReflection details={topRightMountainDetails} />
           </div>
-
-
           <MountainContainer
             setMountainDetails={setBottomRightMountainDetails}
             className={
@@ -105,60 +68,21 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
             colorGroup="bottom-left"
           />
         </div>
-
-
         <div style={{
-          background: `linear-gradient(to top, ${theme.lakeColors.middle.gradientStart}, ${theme.lakeColors.middle.gradientMid}, ${theme.lakeColors.middle.gradientEnd})`}}
+          background: `linear-gradient(to top, ${theme.lakeColors.middle.gradientStart}, ${theme.lakeColors.middle.gradientMid}, ${theme.lakeColors.middle.gradientEnd})`
+        }}
           className="h-1/5 grid grid-rows-2 grid-cols-11 overflow-x-hidden" >
           <div className="row-start-1 col-span-7 opacity-25 w-[11%] scale-x-[600%]">
-            {bottomLeftMountainDetails.map((detail, index) => {
-              const reflectedMountainStyle = {
-                clipPath: `polygon(${detail.peaks.join(", ")})`,
-                zIndex: 100 - index * 10,
-                backgroundColor: detail.color,
-                width: "100%",
-                transform: "scaleY(-1) scaleX(-1)",
-              };
-
-              return (
-                <div
-                  key={index}
-                  className=" h-32 absolute w-fit"
-                  style={reflectedMountainStyle}
-                ></div>
-              );
-            })}
+            <MountainReflection details={bottomLeftMountainDetails} />
           </div>
-
           <div className="col-start-8 col-span-3 row-start-1 opacity-25 w-4/12 scale-x-[600%] ml-96 ">
-            {bottomRightMountainDetails.map((detail, index) => {
-
-              const reflectedMountainStyle = {
-                clipPath: `polygon(${detail.peaks.join(", ")})`,
-                zIndex: 100 - index * 10,
-                backgroundColor: detail.color,
-                width: "100%",
-
-                transform: "scaleY(-1) ",
-
-              };
-
-              return (
-                <div
-                  key={index}
-                  className="absolute h-32 w-fit"
-                  style={reflectedMountainStyle}
-                ></div>
-              );
-            })}
+            <MountainReflection details={bottomRightMountainDetails} />
           </div>
-
         </div>
-
-      <div
-      style={{background: `linear-gradient(to top, ${theme.lakeColors.bottom.gradientStart}, ${theme.lakeColors.bottom.gradientMid}, ${theme.lakeColors.bottom.gradientEnd})`}}
-      className="h-1/5"></div>
-    </div>
+        <div
+          style={{ background: `linear-gradient(to top, ${theme.lakeColors.bottom.gradientStart}, ${theme.lakeColors.bottom.gradientMid}, ${theme.lakeColors.bottom.gradientEnd})` }}
+          className="h-1/5"></div>
+      </div>
     </PageTransition >
   );
 }

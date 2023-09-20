@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <AnimatePresence
           onExitComplete={onExitComplete}
           initial={false}
-          mode="wait"
+          mode="popLayout"
           
         >
           <Component {...pageProps} />

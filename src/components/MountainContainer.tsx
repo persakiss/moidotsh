@@ -6,7 +6,7 @@ import MountainBackground from "@/components/MountainBackground";
 interface MountainContainerProps {
   className?: string;
   colorGroup: 'top-left' | 'top-right' | 'bottom-right' | 'bottom-left';
-  setMountainDetails: (details: any[]) => void;  // We're making this prop mandatory here
+  setMountainDetails: (details: any[]) => void;  //this prop mandatory 
 }
 
 const MountainContainer = ({ setMountainDetails, colorGroup, className }: MountainContainerProps) => {

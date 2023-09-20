@@ -11,18 +11,11 @@ function Nav({}: Props) {
 
   const links = [["/"], ["/projects"], ["/skills"], ["/contact"]];
 
-
-
-
   const iconMaker = (path: string, index: number) => {
     return (
-        <li key={index}>
-          {router.pathname === path ? (
-            <GitCommit className="inline" />
-          ) : (
-            <Minus className="inline" />
-          )}
-        </li>
+      <li key={index} className="">
+        {router.pathname === path ? "|" : ""}
+      </li>
     );
   };
 
@@ -40,10 +33,11 @@ function Nav({}: Props) {
     style: string = "",
     offStyle: string = ""
   ) => {
-
     let textOut;
+    let onStyle;
 
     if (path === "/") {
+      onStyle = "";
       textOut = "home";
     } else if (firstCapital) {
       textOut = path[1].toUpperCase() + path.substring(2);
@@ -52,11 +46,14 @@ function Nav({}: Props) {
     }
 
     return (
-        <li className={router.pathname === path ? style : offStyle} key={index}>
-          <Link href={path} scroll={false} onClick={() => {}}> 
-            {textOut}
-          </Link>
-        </li>
+      <li
+        className={router.pathname === path ? style + onStyle : offStyle}
+        key={index}
+      >
+        <Link href={path} scroll={false} onClick={() => {}}>
+          {textOut}
+        </Link>
+      </li>
     );
   };
 
@@ -67,8 +64,8 @@ function Nav({}: Props) {
   };
 
   return (
-    <nav className="w-full flex flex-col mt-10 ">
-      <div className="mx-auto">
+    <nav className="w-full flex flex-col">
+      <div className="mx-auto ">
         <ul className="flex justify-between relative">
           {iconsToJsx(links)}
           <style jsx>{`
@@ -83,7 +80,7 @@ function Nav({}: Props) {
             }
           `}</style>
         </ul>
-        <ul className="flex justify-between">{linksToJsx(links)}</ul>
+        <ul className="flex justify-between -mt-6">{linksToJsx(links)}</ul>
       </div>
     </nav>
   );

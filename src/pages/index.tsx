@@ -8,6 +8,7 @@ import Background from "@/components/Background";
 import Sun from "@/components/Sun";
 import { theme } from "@/styles/themes";
 import MountainReflection from "@/components/MountainReflection";
+import TerminalContainer from "@/components/TerminalContainer";
 
 type IndexPageProps = {};
 type IndexPageRef = React.ForwardedRef<HTMLDivElement>;
@@ -30,6 +31,8 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
     <PageTransition ref={ref}>
       <div className="page1 h-screen overflow-x-hidden overflow-y-hidden">
         <Background>
+          {" "}
+          {/* This is 2/5 vh */}
           <MountainContainer
             setMountainDetails={setTopRightMountainDetails}
             className={"row-start-2 col-start-7 col-span-5 -mr-36"}
@@ -41,15 +44,19 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
             className={"row-start-2 col-span-5 -ml-36"}
             colorGroup="top-left"
           />
+          <TerminalContainer />
         </Background>
         {/* Using style here because can't interpolate js to tailwind util classes. But it's only bg colours so it's not a big deal */}
-        <div style={{
-          background: `linear-gradient(to top, ${theme.lakeColors.top.gradientStart}, ${theme.lakeColors.top.gradientMid}, ${theme.lakeColors.top.gradientEnd})`,
-        }}
-          className="h-1/5 grid grid-rows-2 grid-cols-11">
+        <div
+          style={{
+            background: `linear-gradient(to top, ${theme.lakeColors.top.gradientStart}, ${theme.lakeColors.top.gradientMid}, ${theme.lakeColors.top.gradientEnd})`,
+          }}
+          className="h-1/5 grid grid-rows-2 grid-cols-11"
+        >
           <div className="row-start-1 col-span-5 opacity-25 relative scale-x-150 w-[80%]">
             <MountainReflection details={topLeftMountainDetails} />
           </div>
+
           <div className="col-start-8 col-span-4 row-start-1 opacity-25 relative scale-x-150 ml-1">
             <MountainReflection details={topRightMountainDetails} />
           </div>
@@ -68,10 +75,12 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
             colorGroup="bottom-left"
           />
         </div>
-        <div style={{
-          background: `linear-gradient(to top, ${theme.lakeColors.middle.gradientStart}, ${theme.lakeColors.middle.gradientMid}, ${theme.lakeColors.middle.gradientEnd})`
-        }}
-          className="h-1/5 grid grid-rows-2 grid-cols-11 overflow-x-hidden" >
+        <div
+          style={{
+            background: `linear-gradient(to top, ${theme.lakeColors.middle.gradientStart}, ${theme.lakeColors.middle.gradientMid}, ${theme.lakeColors.middle.gradientEnd})`,
+          }}
+          className="h-1/5 grid grid-rows-2 grid-cols-11 overflow-x-hidden"
+        >
           <div className="row-start-1 col-span-7 opacity-25 w-[11%] scale-x-[600%]">
             <MountainReflection details={bottomLeftMountainDetails} />
           </div>
@@ -80,10 +89,13 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
           </div>
         </div>
         <div
-          style={{ background: `linear-gradient(to top, ${theme.lakeColors.bottom.gradientStart}, ${theme.lakeColors.bottom.gradientMid}, ${theme.lakeColors.bottom.gradientEnd})` }}
-          className="h-1/5"></div>
+          style={{
+            background: `linear-gradient(to top, ${theme.lakeColors.bottom.gradientStart}, ${theme.lakeColors.bottom.gradientMid}, ${theme.lakeColors.bottom.gradientEnd})`,
+          }}
+          className="h-1/5"
+        ></div>
       </div>
-    </PageTransition >
+    </PageTransition>
   );
 }
 

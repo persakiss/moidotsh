@@ -156,7 +156,7 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
         </div>
 
       <div
-      style={{ backgroundColor: theme.lakeColors.bottom}}
+      style={{background: `linear-gradient(to top, ${theme.lakeColors.bottom.gradientStart}, ${theme.lakeColors.bottom.gradientMid}, ${theme.lakeColors.bottom.gradientEnd})`}}
       className="h-1/5"></div>
     </div>
     </PageTransition >

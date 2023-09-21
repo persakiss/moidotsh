@@ -17,7 +17,7 @@ const AddressBar = ({ hidden, toggleHidden }: AddressBarProps) => {
 
     return (
         <>
-            <div className="absolute mt-2 h-[5vh] w-[20rem] flex self-center bg-white font rounded-t">
+            <div className="absolute mt-2 h-[5vh] w-[20rem] flex self-center bg-white font rounded-t address-bar">
                 <p className="self-center flex-auto">{textMaker(router.pathname)}</p>{" "}
                 <p className="mr-3 mt-1" onClick={toggleHidden}>
                     x

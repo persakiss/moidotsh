@@ -28,63 +28,6 @@ html {
   height: 100%;
 }
 
-.spill {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  height: 100%;
-}
-
-
-
-.ledge {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  padding-top: 3rem;
-  height: 100vh;
-}
-
-.plate { 
-  height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  will-change: transform;
-}
-
-.device {   
-  height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  will-change: transform;
-  animation: slide 8s ease-in-out infinite;
-}
-
-.stone {
-
-  height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  will-change: transform;
-}
-
-.plant {
-
-  height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  will-change: transform;
-}
 
 @keyframes slide {
   0% {
@@ -166,9 +109,7 @@ nav ul li {
 
 h2 {
   font-size: xx-large;
-  text-decoration: underline;
 }
 
 h2:hover {
-  text-decoration: none;
 }

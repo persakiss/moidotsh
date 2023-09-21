@@ -44,8 +44,9 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
             className={"row-start-2 col-span-5 -ml-36"}
             colorGroup="top-left"
           />
-          <TerminalContainer />
         </Background>
+        <TerminalContainer />
+
         {/* Using style here because can't interpolate js to tailwind util classes. But it's only bg colours so it's not a big deal */}
         <div
           style={{

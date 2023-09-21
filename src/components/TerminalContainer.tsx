@@ -41,7 +41,7 @@ function TerminalContainer({}: Props) {
           </div>
         </div>{ !hidden &&
         <div className="bg-white rounded-b opacity-30 h-[45vh]">
-          <p className="p-3">test</p>
+          <p className="p-3">{">"}</p>
         </div>
         }
       </div>

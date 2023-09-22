@@ -1,16 +1,14 @@
 import React, { useState, ChangeEvent, KeyboardEvent } from "react";
-import { useRouter } from "next/router";
 
 type TextInputProps = {
   changeLine: (count: number) => void;
   initialValue: string;
-  handleCommandExecution: (commandInput: string, router: ReturnType<typeof useRouter>) => void;
+  handleCommandExecution: (commandInput: string) => void;
   afterEnter?: () => void;
-  router: ReturnType<typeof useRouter>;
 };
 
 const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
-  ({ router, changeLine, initialValue, handleCommandExecution, afterEnter }, ref) => {
+  ({ changeLine, initialValue, handleCommandExecution, afterEnter }, ref) => {
     const [width, setWidth] = useState(0);
     const [count, setCount] = useState(0);
 

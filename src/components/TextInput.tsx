@@ -20,7 +20,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
 
     const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
       if (e.key === "Enter") {
-        handleCommandExecution(e.currentTarget.value, router); // Use the router prop directly
+        handleCommandExecution(e.currentTarget.value); // Use the router prop directly
         setCount((prevCount) => prevCount + 1);
         changeLine(count);
         if (afterEnter) {

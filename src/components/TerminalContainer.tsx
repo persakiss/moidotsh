@@ -83,7 +83,7 @@ function TerminalContainer({ }: Props) {
             {lines.map((lineContent, index) => (
               <div key={index} className="flex pl-3 overflow-hidden">
                 <LeftText path={router.pathname} />
-                <TextInput router={router} handleCommandExecution={(commandInput) => handleCommandExecution(commandInput, router)} ref={inputRef} changeLine={() => changeLine(index)} initialValue={lineContent} />
+                <TextInput router={router} handleCommandExecution={handleCommandExecution} ref={inputRef} changeLine={() => changeLine(index)} initialValue={lineContent} />
                 {index === lines.length - 1 && <BlinkingCaret />} {/* Only render caret for the last line */}
               </div>
             ))}

@@ -6,16 +6,25 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {
+theme: {
     extend: {
+      fontFamily: {
+        'fira-code': ['Fira Code', 'monospace'],
+      },
       keyframes: {
-        
+        blinker: {
+          '50%': { opacity: '0' }
+        }
       },
       animation: {
-        
+        blinker: 'blinker 1s linear infinite',
       },
-    },
+      margin: {
+        '-10': '-10px'
+      }
+    }
   },
+  variants: {},
   plugins: [],
-};
+}
 export default config;

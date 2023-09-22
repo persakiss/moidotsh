@@ -5,15 +5,15 @@ import { Folder as FolderType, File as FileType } from "./FolderStructureHelper"
 
 type FolderFileDisplayProps = {
     currentFolder: FolderType | null;
-    hidden: boolean;
+    explorerHidden: boolean;
 };
 
-const FolderFileDisplay = ({ currentFolder, hidden }: FolderFileDisplayProps) => {
+const FolderFileDisplay = ({ currentFolder, explorerHidden }: FolderFileDisplayProps) => {
     return (
         <div className="mx-auto">
             <ul
                 className="grid grid-cols-4 mt-16"
-                style={{ display: hidden ? "none" : "" }}
+                style={{ display: explorerHidden ? "none" : "" }}
             >
                 {currentFolder?.children
                     .sort((a, b) => {
@@ -39,7 +39,7 @@ const FolderFileDisplay = ({ currentFolder, hidden }: FolderFileDisplayProps) =>
 
             <ul
                 className="grid grid-cols-4 -mt-6"
-                style={{ display: hidden ? "none" : "" }}
+                style={{ display: explorerHidden ? "none" : "" }}
             >
                 {currentFolder?.children
                     .sort((a, b) => {

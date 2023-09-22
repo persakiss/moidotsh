@@ -4,11 +4,11 @@ import { useRouter } from "next/router";
 import { X } from 'react-feather';
 
 type AddressBarProps = {
-    hidden: boolean;
+    explorerHidden: boolean;
     toggleHidden: () => void;
 };
 
-const AddressBar = ({ hidden, toggleHidden }: AddressBarProps) => {
+const AddressBar = ({ explorerHidden, toggleHidden }: AddressBarProps) => {
     const router = useRouter();
 
     const textMaker = (inputPath: string) => {
@@ -26,7 +26,7 @@ const AddressBar = ({ hidden, toggleHidden }: AddressBarProps) => {
             </div>
             <div
                 className="absolute mt-[2rem] h-[7rem] w-[20rem] flex self-center bg-white rounded-b opacity-30"
-                style={{ display: hidden ? "none" : "" }}
+                style={{ display: explorerHidden ? "none" : "" }}
             >
                 {" "}
             </div>

@@ -1,3 +1,5 @@
+//commands.ts 
+
 import { useRouter } from "next/router";
 
 type CommandHandler = (args: string[], router: ReturnType<typeof useRouter>) => void;
@@ -14,4 +16,3 @@ export const cd: CommandHandler = (args, router) => {
 };
 
 // ... Other command handlers
-

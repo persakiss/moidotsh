@@ -42,19 +42,17 @@ function TerminalContainer({ }: Props) {
     setCurrentPosition({ x: data.x, y: data.y });
   };
 
-  function handleCommandExecution(commandInput: string, router: typeof useRouter) {
+  function handleCommandExecution(commandInput: string) {
     const [command, ...args] = commandInput.split(' ');
 
     const commandHandler = commands[command as keyof typeof commands];
 
     if (commandHandler) {
-      commandHandler(args, router)
+      commandHandler(args, router);  // <-- Pass the router instance here.
     } else {
-      // Handle invalid command
       console.error("Command not found");
     }
   }
-
 
   return (
     <Draggable position={currentPosition} onDrag={handleDrag} bounds="parent">

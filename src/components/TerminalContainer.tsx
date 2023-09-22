@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
 import router from "next/router";
+import { X } from "react-feather";
 
 type Props = {};
 
@@ -27,17 +28,19 @@ function TerminalContainer({}: Props) {
           position: "absolute",
           width: "66.66%",
           height: "50vh",
+          bottom: "2rem",
+          right: "2rempx"
         }}
       >
         <div
-          className="bg-white rounded-t opacity-100 h-[5vh] flex justify-between items-center"
+          className="bg-white rounded-t opacity-100 h-[2rem] flex justify-between items-center"
           style={{ display: "" }}
         >
           <div className="whitespace-nowrap pl-3 hover:cursor-default">
             st ~
           </div>
           <div className="whitespace-nowrap pr-3 hover:cursor-default">
-            <p onClick={() => setHidden(!hidden)}>x</p>
+            <p onClick={() => setHidden(!hidden)}><X size={"1rem"}/></p>
           </div>
         </div>{ !hidden &&
         <div className="bg-white rounded-b opacity-30 h-[45vh]">

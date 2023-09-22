@@ -45,7 +45,7 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
             colorGroup="top-left"
           />
         </Background>
-        <TerminalContainer />
+        {/* <TerminalContainer /> */}
 
         {/* Using style here because can't interpolate js to tailwind util classes. But it's only bg colours so it's not a big deal */}
         <div

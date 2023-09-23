@@ -17,7 +17,7 @@ const AppContainer: React.FC<AppContainerProps> = ({ children, initialPosition }
 
   return (
     <Draggable position={currentPosition} onDrag={handleDrag}>
-      <div /* styles here */>
+      <div className="bg-white absolute">
         {children}
       </div>
     </Draggable>

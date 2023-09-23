@@ -25,7 +25,7 @@ export const useVisibilityStore = create<VisibilityState>((set) => ({
   toggleTerminal: () => set((state) => ({ terminalVisible: !state.terminalVisible })),
   setTerminalVisible: (visible: boolean) => set({ terminalVisible: visible }),
 
-  musicVisible: true, 
+  musicVisible: false, 
   toggleMusic: () => set((state) => ({ musicVisible: !state.musicVisible })),
   setMusicVisible: (visible: boolean) => set({ musicVisible: visible }),
 

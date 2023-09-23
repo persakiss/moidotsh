@@ -71,16 +71,23 @@ const MusicApp = () => {
 
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (playing && player) {
-      interval = setInterval(() => {
-        setProgress((player.getCurrentTime() / player.getDuration()) * 100);
-      }, 1000);
-    } else {
+  let interval: NodeJS.Timeout | null = null;  // Initialize to null
+  if (playing && player) {
+    interval = setInterval(() => {
+      setProgress((player.getCurrentTime() / player.getDuration()) * 100);
+    }, 1000);
+  } else {
+    if (interval) {  // Check if interval is not null before clearing
       clearInterval(interval);
     }
-    return () => clearInterval(interval);
-  }, [playing, player]);
+  }
+  return () => {
+    if (interval) {  // Check if interval is not null before clearing
+      clearInterval(interval);
+    }
+  };
+}, [playing, player]);
+
 
 
 

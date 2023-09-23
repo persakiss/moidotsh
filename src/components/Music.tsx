@@ -2,15 +2,13 @@ import React from 'react';
 import YouTube from 'react-youtube';
 import { X } from 'react-feather';
 import { useVisibilityStore } from "@/stores/visibilityStore";
-import MusicBar from './MusicBar';
 
 const Music: React.FC = () => {
   const musicVisible = useVisibilityStore((state) => state.musicVisible);
-  const toggleMusic = useVisibilityStore((state) => state.toggleMusic);
 
   const opts = {
-    height: '50', // You can adjust this to only show the controls
-    width: '300',
+    height: '0', // You can adjust this to only show the controls
+    width: '0',
     playerVars: {
       controls: 2, // Show player controls
       modestbranding: 1, // Hide YouTube branding
@@ -25,9 +23,8 @@ const Music: React.FC = () => {
 
   return (
     <>
-      <MusicBar />
-      <div className="absolute top-full left-0 w-full rounded-b bg-white opacity-30">
-        <YouTube videoId="XD08gqsqSYM" opts={opts} />
+      <div className="p-4 hidden">
+        <YouTube videoId="C4wwXZRgPWY" opts={opts} />
       </div>
     </>
   );

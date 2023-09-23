@@ -1,69 +1,48 @@
 import React from 'react';
 import Link from "next/link";
 import { Folder, File } from "react-feather";
-import { Folder as FolderType, File as FileType } from "./FolderStructureHelper";
+import { Folder as FolderType } from "./FolderStructureHelper";
+import { useVisibilityStore } from '@/stores/visibilityStore';
 
 type FolderFileDisplayProps = {
-    currentFolder: FolderType | null;
-    explorerHidden: boolean;
+  currentFolder: FolderType | null;
 };
 
-const FolderFileDisplay = ({ currentFolder, explorerHidden }: FolderFileDisplayProps) => {
-    return (
-        <div className="mx-auto">
-            <ul
-                className="grid grid-cols-4 mt-16"
-                style={{ display: explorerHidden ? "none" : "" }}
-            >
-                {currentFolder?.children
-                    .sort((a, b) => {
-                        if (a.type === "folder" && b.type === "file") return -1;
-                        if (a.type === "file" && b.type === "folder") return 1;
-                        return 0;
-                    })
-                    .map((child, index) => (
-                        <li
-                            className={`col-start-${index + 1} relative`}
-                            key={child.name}
-                        >
-                            {child.type === "folder" ? (
-                                <Link href={child.path || "#"} scroll={false}>
-                                    <Folder />
-                                </Link>
-                            ) : (
-                                <File />
-                            )}
-                        </li>
-                    ))}
-            </ul>
+const FolderFileDisplay = ({ currentFolder }: FolderFileDisplayProps) => {
+  const explorerVisible = useVisibilityStore((state) => state.explorerVisible);
 
-            <ul
-                className="grid grid-cols-4 -mt-6"
-                style={{ display: explorerHidden ? "none" : "" }}
-            >
-                {currentFolder?.children
-                    .sort((a, b) => {
-                        if (a.type === "folder" && b.type === "file") return -1;
-                        if (a.type === "file" && b.type === "folder") return 1;
-                        return 0;
-                    })
-                    .map((child, index) => (
-                        <li
-                            className={`col-start-${index + 1} relative`}
-                            key={child.name}
-                        >
-                            {child.type === "folder" ? (
-                                <Link href={child.path || "#"} scroll={false}>
-                                    <p className="text-xs">{child.name}</p>
-                                </Link>
-                            ) : (
-                                <p className="text-xs">{child.name}</p>
-                            )}
-                        </li>
-                    ))}
-            </ul>
-        </div>
-    );
+  if (!explorerVisible || !currentFolder) return null;
+
+  const sortedChildren = [...currentFolder.children].sort((a, b) => {
+    if (a.type === "folder" && b.type === "file") return -1;
+    if (a.type === "file" && b.type === "folder") return 1;
+    return 0;
+  });
+
+  return (
+    <div className="mx-auto">
+      <ul className="grid grid-cols-4 mt-16">
+        {sortedChildren.map((child, index) => (
+          <li className={`col-start-${index + 1} relative`} key={child.name}>
+            {child.type === "folder" ? (
+              <Link href={child.path || "#"} scroll={false}>
+                <div className="flex flex-col items-center gap-2 cursor-pointer">
+                  <Folder />
+                  <p className="text-xs">{child.name}</p>
+                </div>
+              </Link>
+            ) : (
+              <div className="flex flex-col items-center gap-2">
+                <File />
+                <p className="text-xs">{child.name}</p>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default FolderFileDisplay;
+

@@ -7,15 +7,15 @@ import { rootFolder, findFolderByPath } from "./FolderStructureHelper";
 import AddressBar from "./AddressBar";
 import FolderFileDisplay from "./FolderFileDisplay";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
+import { useVisibilityStore } from "@/stores/visibilityStore";
 
 type Props = {
-  explorerHidden: boolean;
-  setExplorerHidden(newVal: boolean): void;
 };
 
-function Nav({explorerHidden, setExplorerHidden}: Props) {
+function Nav({}: Props) {
   const router = useRouter();
-
+  const explorerVisible = useVisibilityStore((state) => state.explorerVisible)
+  const toggleExplorer = useVisibilityStore((state) => state.toggleExplorer)
 
   const currentFolder = useMemo(
     () => findFolderByPath(router.pathname, rootFolder),
@@ -36,8 +36,8 @@ function Nav({explorerHidden, setExplorerHidden}: Props) {
   return (
     <Draggable position={currentPosition} onDrag={handleDrag} handle=".address-bar">
       <nav className="w-full flex flex-col">
-        <AddressBar explorerHidden={explorerHidden} toggleHidden={() => setExplorerHidden(!explorerHidden)} />
-        <FolderFileDisplay currentFolder={currentFolder} explorerHidden={explorerHidden} />
+        <AddressBar />
+        <FolderFileDisplay currentFolder={currentFolder} explorerVisible={explorerVisible} />
       </nav>
     </Draggable>
   );

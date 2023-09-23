@@ -7,11 +7,15 @@ import LeftText from "./LeftText";
 import BlinkingCaret from "./BlinkingCaret";
 import * as commands from '../utils/commands';
 import { useRouter } from "next/router";
+import { useVisibilityStore } from "@/stores/visibilityStore";
 
 type Props = {};
 
 function TerminalContainer({ }: Props) {
-  const [hidden, setHidden] = useState(false);
+  const terminalVisible = useVisibilityStore((state) => state.terminalVisible)
+  const toggleTerminal = useVisibilityStore((state) => state.toggleTerminal)
+
+
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [lines, setLines] = useState<string[]>(['']);
 
@@ -56,7 +60,7 @@ function TerminalContainer({ }: Props) {
 
   return (
     <Draggable position={currentPosition} onDrag={handleDrag} bounds="parent">
-      <div
+      {terminalVisible ? (<div
         onClick={handleTextAreaClick}
         style={{
           zIndex: 2000,
@@ -75,21 +79,21 @@ function TerminalContainer({ }: Props) {
             st ~
           </div>
           <div className="whitespace-nowrap pr-3 hover:cursor-default">
-            <p onClick={() => setHidden(!hidden)}><X size={"1rem"} /></p>
+            <p onClick={() => toggleTerminal()}><X size={"1rem"} /></p>
           </div>
-        </div>{!hidden &&
-          <div className="bg-white bg-opacity-30 rounded-b h-[45vh] overflow-hidden">
-            <div className="pt-3"></div>
-            {lines.map((lineContent, index) => (
-              <div key={index} className="flex pl-3 overflow-hidden">
-                <LeftText path={router.pathname} />
-                <TextInput handleCommandExecution={handleCommandExecution} ref={inputRef} changeLine={() => changeLine(index)} initialValue={lineContent} />
-                {index === lines.length - 1 && <BlinkingCaret />} {/* Only render caret for the last line */}
-              </div>
-            ))}
-          </div>
-        }
-      </div>
+        </div>
+        <div className="bg-white bg-opacity-30 rounded-b h-[45vh] overflow-hidden">
+          <div className="pt-3"></div>
+          {lines.map((lineContent, index) => (
+            <div key={index} className="flex pl-3 overflow-hidden">
+              <LeftText path={router.pathname} />
+              <TextInput handleCommandExecution={handleCommandExecution} ref={inputRef} changeLine={() => changeLine(index)} initialValue={lineContent} />
+              {index === lines.length - 1 && <BlinkingCaret />} {/* Only render caret for the last line */}
+            </div>
+          ))}
+        </div>
+
+      </div>) : <></>}
     </Draggable>
   );
 }

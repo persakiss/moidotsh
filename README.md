@@ -1,21 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Moidotsh - A Desktop-like Personal Website
+
+## Introduction
+
+Welcome to Moidotsh! This is a personal website designed to mimic a desktop interface. 
+
+Built with Next.js and TypeScript, it offers a unique user experience with a terminal, app dock, and folder/file display.
+
+![Demo Screenshot](./public/screenshot.png)
+
+## Features
+
+- **Terminal**: Navigate the website like you would with a command line.
+- **App Dock**: Quick access to different sections of the site.
+- **Folder/File Display**: A file explorer-like UI to browse through content.
+- **Additional Pages**: Includes pages for contact, projects, and skills.
+
+## Tech Stack
+
+- Next.js
+- TypeScript
+- TailwindCSS
+- State Management with custom stores
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-bun run dev
-# or
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- Node.js
+- npm or yarn
 
-Next MPA with smooth transitions in lieu of the view transitions API. MPA is important for SEO, and smooth transitions using next/framer (instead of astro+view transitions) would get everybody. Relying on view transitions not feasible at this stage as 90% visitors are mobile, and mobile + safari + firefox not supported yet. 
+### Installation
 
-My portfolio website, work in project. 
+1. Clone the repository
+   ```bash
+   git clone https://github.com/persakiss/moidotsh.git
 
-# moidotsh
+2. Navigate to the project directory
+   ```bash
+   bun install
+
+3. Run the development server
+   ```bash
+   bun run dev
+
+

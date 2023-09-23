@@ -1,4 +1,6 @@
-import create from 'zustand';
+// stores/visibilityStore.ts
+
+import { create } from 'zustand';
 
 type VisibilityState = {
   explorerVisible: boolean;
@@ -19,7 +21,7 @@ export const useVisibilityStore = create<VisibilityState>((set) => ({
   toggleExplorer: () => set((state) => ({ explorerVisible: !state.explorerVisible })),
   setExplorerVisible: (visible: boolean) => set({ explorerVisible: visible }),
 
-  terminalVisible: true, // Assuming terminal is initially visible
+  terminalVisible: false,
   toggleTerminal: () => set((state) => ({ terminalVisible: !state.terminalVisible })),
   setTerminalVisible: (visible: boolean) => set({ terminalVisible: visible }),
 

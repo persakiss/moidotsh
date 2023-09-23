@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Terminal, Music, Briefcase } from "react-feather";
 import { useVisibilityStore } from "@/stores/visibilityStore";
 
@@ -20,16 +20,28 @@ function AppDock({ }: Props) {
   ];
 
 
-  const [bouncing, setBouncing] = useState<number | null>(null);
+  const [isTouched, setIsTouched] = useState<number | null>(null);
 
-  const handleClick = (index: number) => {
-    setBouncing(index);
+  let timeout: any = null;
+
+  // Function to handle icon click
+  const handleIconClick = (app: any, index: number) => {
+    // Toggle visibility based on app name
+    app.name === "Explorer" && toggleExplorer();
+    app.name === "Terminal" && toggleTerminal();
+    app.name === "Music" && toggleMusic();
+
+    // Set the touched state to move the icon upwards
+    setIsTouched(index);
+
+    // Clear any existing timeout
+    if (timeout) clearTimeout(timeout);
+
+    // Set a timeout to move the icon back to original position
+    timeout = setTimeout(() => {
+      setIsTouched(null);
+    }, 500); // 500 ms delay
   };
-
-  const handleAnimationEnd = () => {
-    setBouncing(null);
-  };
-
 
   return (
     <div className="absolute w-full flex bottom-0 justify-center">
@@ -39,25 +51,24 @@ function AppDock({ }: Props) {
             {Apps.map((app, index) => (
               <li
                 key={index}
-                className="flex flex-col items-center bottom-10 w-20 relative cursor-default"
-                onClick={() => {
-                  app.name === "Explorer" && toggleExplorer();
-                  app.name === "Terminal" && toggleTerminal();
-                  app.name === "Music" && toggleMusic()
-                }}
+                className={`flex flex-col items-center bottom-10 w-20 relative cursor-default`}
+                onClick={() => handleIconClick(app, index)}
               >
-                <div className="bg-white w-20 h-20 flex flex-col justify-center items-center rounded transform transition-transform hover:-translate-y-5">
+                <div
+                  className={`bg-white w-20 h-20 flex flex-col justify-center items-center rounded transform transition-transform will-change-transform ${isTouched === index ? "-translate-y-5" : ""}`}
+                >
                   {app.icon}
                   <span className="select-none">{app.name.toLowerCase()}</span>
                 </div>
                 <div
                   style={{
-                    background: app.visible === false ? "white" : "",
+                    background: app.visible === false ? "transparent" : "#ffffff",  // Set to transparent when not visible
                   }}
-                  className="absolute w-3 mt-16 h-3 rounded-full "
+                  className="absolute bottom-[-5px] left-[50%] translate-x-[-50%] w-3 h-3 rounded-full"
                 ></div>
               </li>
             ))}
+
           </ul>
         </div>
       </div>

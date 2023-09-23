@@ -12,24 +12,20 @@ export default function App({ Component, pageProps }: AppProps) {
   };
 
 
-
-
   return (
     <>
-        <Nav />
-        <TerminalContainer />
-        <AppDock />
+      <Nav />
+      <TerminalContainer />
+      <AppDock />
 
+      <AnimatePresence
+        onExitComplete={onExitComplete}
+        initial={false}
+        mode="popLayout"
+      >
+        <Component {...pageProps} />
 
-        <AnimatePresence
-          onExitComplete={onExitComplete}
-          initial={false}
-          mode="popLayout"
-          
-        >
-          <Component {...pageProps} />
-
-        </AnimatePresence>
+      </AnimatePresence>
 
     </>
   );

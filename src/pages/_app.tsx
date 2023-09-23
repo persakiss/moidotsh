@@ -1,3 +1,5 @@
+//_app.tsx
+import AppDock from "@/components/AppDock";
 import Nav from "@/components/Nav";
 import TerminalContainer from "@/components/TerminalContainer";
 import "@/styles/globals.css";
@@ -9,10 +11,15 @@ export default function App({ Component, pageProps }: AppProps) {
     window.scrollTo({ top: 0 });
   };
 
+
+
+
   return (
     <>
         <Nav />
         <TerminalContainer />
+        <AppDock />
+
 
         <AnimatePresence
           onExitComplete={onExitComplete}
@@ -21,7 +28,9 @@ export default function App({ Component, pageProps }: AppProps) {
           
         >
           <Component {...pageProps} />
+
         </AnimatePresence>
+
     </>
   );
 }

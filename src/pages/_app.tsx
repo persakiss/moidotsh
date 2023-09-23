@@ -1,6 +1,6 @@
 //_app.tsx
 import AppDock from "@/components/AppDock";
-import Music from "@/components/Music";
+import MusicApp from "@/components/MusicApp";
 import Nav from "@/components/Nav";
 import TerminalContainer from "@/components/TerminalContainer";
 import "@/styles/globals.css";
@@ -14,10 +14,10 @@ export default function App({ Component, pageProps }: AppProps) {
 
 
   return (
-    <>
+    <div className="overflow-hidden">
       <Nav />
       <TerminalContainer />
-      <Music />
+      <MusicApp />
       <AppDock />
 
       <AnimatePresence
@@ -29,6 +29,6 @@ export default function App({ Component, pageProps }: AppProps) {
 
       </AnimatePresence>
 
-    </>
+    </div>
   );
 }

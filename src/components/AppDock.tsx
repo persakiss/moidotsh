@@ -1,3 +1,5 @@
+// AppDock.tsx
+
 import React, { useState, useEffect } from "react";
 import { Terminal, Music, Briefcase } from "react-feather";
 import { useVisibilityStore } from "@/stores/visibilityStore";
@@ -44,10 +46,11 @@ function AppDock({ }: Props) {
   };
 
   return (
-    <div className="absolute w-full flex bottom-0 justify-center">
+  // the pt-20 + overflow-y-hidden was the key combo to still showing full icons and dots without adding vertical scroll
+    <div className="absolute w-full flex bottom-0 pt-20 justify-center overflow-y-hidden">
       <div className="z-[2000]">
         <div className="w-[60vh] text-center">
-          <ul className="list-none flex justify-evenly items-center">
+          <ul className="list-none flex justify-evenly items-center ">
             {Apps.map((app, index) => (
               <li
                 key={index}

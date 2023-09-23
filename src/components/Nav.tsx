@@ -37,7 +37,7 @@ function Nav({}: Props) {
     <Draggable position={currentPosition} onDrag={handleDrag} handle=".address-bar">
       <nav className="w-full flex flex-col">
         <AddressBar />
-        <FolderFileDisplay currentFolder={currentFolder} explorerVisible={explorerVisible} />
+        <FolderFileDisplay currentFolder={currentFolder} />
       </nav>
     </Draggable>
   );

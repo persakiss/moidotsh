@@ -14,8 +14,6 @@ type Props = {
 
 function Nav({}: Props) {
   const router = useRouter();
-  const explorerVisible = useVisibilityStore((state) => state.explorerVisible)
-  const toggleExplorer = useVisibilityStore((state) => state.toggleExplorer)
 
   const currentFolder = useMemo(
     () => findFolderByPath(router.pathname, rootFolder),

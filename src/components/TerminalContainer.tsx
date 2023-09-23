@@ -73,10 +73,12 @@ function TerminalContainer({ }: Props) {
       >
         <div
           className="bg-white rounded-t opacity-100 h-[2rem] flex justify-between items-center"
-          style={{ display: "" }}
         >
-          <div className="whitespace-nowrap pl-3 hover:cursor-default">
+          <div className="whitespace-nowrap pl-3 hover:cursor-default sm:flex hidden">
             st ~
+          </div>
+          <div className="whitespace-nowrap pl-3 hover:cursor-default sm:hidden">
+            <LeftText path={router.pathname} />
           </div>
           <div className="whitespace-nowrap pr-3 hover:cursor-default">
             <p onClick={() => toggleTerminal()}><X size={"1rem"} /></p>
@@ -86,7 +88,10 @@ function TerminalContainer({ }: Props) {
           <div className="pt-3"></div>
           {lines.map((lineContent, index) => (
             <div key={index} className="flex pl-3 overflow-hidden">
-              <LeftText path={router.pathname} />
+              <div className="hidden sm:block">
+                <LeftText path={router.pathname} />
+              </div>
+              <p className="font-fira-code pr-2 sm:hidden inline">$</p> {/* Appear only upto small */}
               <TextInput handleCommandExecution={handleCommandExecution} ref={inputRef} changeLine={() => changeLine(index)} initialValue={lineContent} />
               {index === lines.length - 1 && <BlinkingCaret />} {/* Only render caret for the last line */}
             </div>

@@ -4,6 +4,7 @@ import { useState } from "react";
 
 type AppContainerProps = {
   initialPosition?: { x: number, y: number };
+  children: any; // Temporary until I figure out how to make this
   // Add more props like width, max-width, etc.
 };
 
@@ -16,7 +17,7 @@ const AppContainer: React.FC<AppContainerProps> = ({ children, initialPosition }
 
   return (
     <Draggable position={currentPosition} onDrag={handleDrag}>
-      <div /* your styles here */>
+      <div /* styles here */>
         {children}
       </div>
     </Draggable>

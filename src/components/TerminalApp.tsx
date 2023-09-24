@@ -10,7 +10,12 @@ import withAppTemplate from './withAppTemplate';
 
 
 
-const TerminalApp: React.FC = ({ setDynamicTitle }) => {
+type TerminalAppProps = {
+  setDynamicTitle: (title: string | JSX.Element) => void;
+};
+
+
+const TerminalApp: React.FC<TerminalAppProps> = ({ setDynamicTitle }) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [lines, setLines] = useState<string[]>(['']);
 
@@ -24,7 +29,6 @@ const TerminalApp: React.FC = ({ setDynamicTitle }) => {
   );
 
   useEffect(() => {
-    const newTitle = `/home/arman${router.pathname}`;
     setDynamicTitle(getDynamicTitle());
   }, [router.pathname]);
 

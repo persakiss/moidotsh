@@ -23,7 +23,7 @@ const TerminalApp: React.FC<TerminalAppProps> = ({ setDynamicTitle }) => {
 
   const getDynamicTitle = () => (
     <>
-      <span className="sm:inline hidden">st ~</span>
+      <span className="sm:inline hidden text-sm"><LeftText path={router.pathname} /></span>
       <span className="sm:hidden inline text-sm"><LeftText path={router.pathname} /></span>
     </>
   );

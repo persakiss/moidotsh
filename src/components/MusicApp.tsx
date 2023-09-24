@@ -107,7 +107,7 @@ const MusicApp = () => {
           <div className='relative block h-6 w-full'>
             <div className='absolute inset-0 flex items-center justify-center'>
               <span className='select-none cursor-default z-[100]'>
-                {isLoading ? 'Loading...' : (artist ? `${artist} - ${title}` : title)}
+                {isLoading ? '...' : (artist ? `${artist} - ${title}` : title)}
               </span>
             </div>
             <div className='absolute inset-0 bg-white rounded bg-opacity-80' style={{ width: `${progress}%` }}></div>

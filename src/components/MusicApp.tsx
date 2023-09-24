@@ -26,7 +26,7 @@ const MusicApp = () => {
       autoplay: 1, // Auto-play the video on load
       iv_load_policy: 3, // Hide video annotations
       showinfo: 0, // Hide video title and uploader
-      list: 'PLoYklFrhjFDxEcECsVIj7W58zRQIpGlUN',
+      list: 'PL6fhs6TSspZv0F0YgsG-p7Mn189CU2XKS',
       listType: 'playlist'
     }
   };

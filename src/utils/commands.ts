@@ -7,7 +7,7 @@ type CommandHandler = (args: string[], router: ReturnType<typeof useRouter>) => 
 export const cd: CommandHandler = (args, router) => {
     const targetDirectory = args[0];
     if (!targetDirectory) {
-        // If no directory specified, go to the home/root directory (you can adjust this behavior)
+        // If no directory specified, go to the home/root directory 
         router.push('/');
         return;
     }

@@ -63,11 +63,11 @@ const TerminalApp: React.FC<TerminalAppProps> = ({ setDynamicTitle }) => {
     <div onClick={handleTextAreaClick} className="w-full overflow-hidden">
       <div className="pt-3"></div>
       {lines.map((lineContent, index) => (
-        <div key={index} className="flex overflow-hidden">
+        <div key={index} className="flex overflow-hidden"> {/*
           <div className="hidden sm:block">
             <LeftText path={router.pathname} />
-          </div>
-          <p className="font-fira-code pr-2 sm:hidden inline">$</p>
+          </div> */}
+          <p className="font-fira-code pr-2">$</p>
           <TextInput handleCommandExecution={handleCommandExecution} ref={inputRef} changeLine={() => changeLine(index)} initialValue={lineContent} />
           {index === lines.length - 1 && <BlinkingCaret />}
         </div>

@@ -1,3 +1,4 @@
+// FolderFileDisplay.tsx
 import React from 'react';
 import Link from "next/link";
 import { Folder, File } from "react-feather";

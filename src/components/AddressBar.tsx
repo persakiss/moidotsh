@@ -1,17 +1,20 @@
 // AddressBar.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from "next/router";
 import { X } from 'react-feather';
 import { useVisibilityStore } from '@/stores/visibilityStore';
 
 type AddressBarProps = {
+  setDynamicTitle: (title: string) => void;
 };
 
-const AddressBar = ({ }: AddressBarProps) => {
+const AddressBar = ({ setDynamicTitle }: AddressBarProps) => {
   const router = useRouter();
-  const explorerVisible = useVisibilityStore((state) => state.explorerVisible);
-  const toggleExplorer = useVisibilityStore((state) => state.toggleExplorer);
 
+  useEffect(() => {
+    const newTitle = textMaker(router.pathname);
+    setDynamicTitle(newTitle);
+  }, [router.pathname]);
 
   const textMaker = (inputPath: string) => {
     const preface = "/home/arman";

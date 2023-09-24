@@ -2,6 +2,7 @@
 import AppDock from "@/components/AppDock";
 import MusicApp from "@/components/MusicApp";
 import Nav from "@/components/Nav";
+import NavApp from "@/components/NavApp";
 import TerminalContainer from "@/components/TerminalContainer";
 import "@/styles/globals.css";
 import { AnimatePresence } from "framer-motion";
@@ -15,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <div className="overflow-hidden">
-      <Nav />
+      <NavApp />
       <TerminalContainer />
       <MusicApp />
       <AppDock />

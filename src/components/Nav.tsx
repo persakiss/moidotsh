@@ -1,19 +1,20 @@
 // Nav.tsx
 
 import { useRouter } from "next/router";
-import React, { useMemo } from "react";
-import { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { rootFolder, findFolderByPath } from "./FolderStructureHelper";
 import AddressBar from "./AddressBar";
 import FolderFileDisplay from "./FolderFileDisplay";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
-import { useVisibilityStore } from "@/stores/visibilityStore";
+import withAppTemplate from "./withAppTemplate";
 
 type Props = {
+  dynamicTitle?: string;
 };
 
-function Nav({}: Props) {
+function Nav({dynamicTitle}: Props) {
   const router = useRouter();
+    const [localDynamicTitle, setLocalDynamicTitle] = useState<string | null>(null);
 
   const currentFolder = useMemo(
     () => findFolderByPath(router.pathname, rootFolder),
@@ -34,11 +35,11 @@ function Nav({}: Props) {
   return (
     <Draggable position={currentPosition} onDrag={handleDrag} handle=".address-bar">
       <nav className="w-full flex flex-col">
-        <AddressBar />
+        <AddressBar setDynamicTitle={setLocalDynamicTitle} />
         <FolderFileDisplay currentFolder={currentFolder} />
       </nav>
     </Draggable>
   );
 }
 
-export default Nav;
+export default withAppTemplate(Nav, 'Explorer');

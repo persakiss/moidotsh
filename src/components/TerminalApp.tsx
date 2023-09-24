@@ -11,7 +11,7 @@ import withAppTemplate from './withAppTemplate';
 
 
 type TerminalAppProps = {
-  setDynamicTitle: (title: string | JSX.Element) => void;
+  setDynamicTitle?: (title: string | JSX.Element) => void;
 };
 
 
@@ -29,7 +29,7 @@ const TerminalApp: React.FC<TerminalAppProps> = ({ setDynamicTitle }) => {
   );
 
   useEffect(() => {
-    setDynamicTitle(getDynamicTitle());
+    setDynamicTitle!(getDynamicTitle());
   }, [router.pathname]);
 
 

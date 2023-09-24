@@ -6,7 +6,7 @@ import { Folder, File } from "react-feather";
 import withAppTemplate from "./withAppTemplate";
 
 type Props = {
-  setDynamicTitle: (title: string) => void;
+  setDynamicTitle?: (title: string) => void;
 };
 
 const NavApp: React.FC<Props> = ({ setDynamicTitle }) => {
@@ -19,7 +19,7 @@ const NavApp: React.FC<Props> = ({ setDynamicTitle }) => {
 
   useEffect(() => {
     const newTitle = `/home/arman${router.pathname}`;
-    setDynamicTitle(newTitle);
+    setDynamicTitle!(newTitle);
   }, [router.pathname]);
 
   const sortedChildren = currentFolder ? [...currentFolder.children].sort((a, b) => {

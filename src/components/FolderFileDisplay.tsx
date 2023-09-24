@@ -1,6 +1,4 @@
-import React from 'react';
-import Link from "next/link";
-import { Folder, File } from "react-feather";
+// FolderFileDisplay.tsx
 import { Folder as FolderType } from "./FolderStructureHelper";
 import { useVisibilityStore } from '@/stores/visibilityStore';
 
@@ -19,28 +17,7 @@ const FolderFileDisplay = ({ currentFolder }: FolderFileDisplayProps) => {
     return 0;
   });
 
-  return (
-    <div className="mx-auto">
-      <ul className="grid grid-cols-4 mt-16">
-        {sortedChildren.map((child, index) => (
-          <li className={`col-start-${index + 1} relative`} key={child.name}>
-            {child.type === "folder" ? (
-              <Link href={child.path || "#"} scroll={false}>
-                <div className="flex flex-col items-center gap-2 cursor-pointer">
-                  <Folder />
-                  <p className="text-xs">{child.name}</p>
-                </div>
-              </Link>
-            ) : (
-              <div className="flex flex-col items-center gap-2">
-                <File />
-                <p className="text-xs">{child.name}</p>
-              </div>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
+  return (null
   );
 };
 

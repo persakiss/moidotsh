@@ -1,22 +1,28 @@
 //_app.tsx
 import AppDock from "@/components/AppDock";
 import MusicApp from "@/components/MusicApp";
-import Nav from "@/components/Nav";
+import NavApp from "@/components/NavApp";
 import TerminalContainer from "@/components/TerminalContainer";
 import "@/styles/globals.css";
 import { AnimatePresence } from "framer-motion";
 import type { AppProps } from "next/app";
+import TerminalApp from "@/components/TerminalApp";
+import LeftText from "@/components/LeftText";
+import Router from "next/router";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const onExitComplete = () => {
+
+const onExitComplete = () => {
     window.scrollTo({ top: 0 });
   };
 
 
+
+
   return (
     <div className="overflow-hidden">
-      <Nav />
-      <TerminalContainer />
+      <NavApp />
+      <TerminalApp  />
       <MusicApp />
       <AppDock />
 

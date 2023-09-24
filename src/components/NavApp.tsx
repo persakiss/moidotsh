@@ -49,6 +49,8 @@ const NavApp: React.FC<Props> = ({ setDynamicTitle }) => {
     // Show loading indicator
     setBrowserLoading(true);
 
+    console.log("fetching ", fileName);
+
     const title = getTitleFromFileName(fileName); // getTitleFromFileName
     setBrowserTitle(`Browser | ${title}`);
 
@@ -99,11 +101,11 @@ const NavApp: React.FC<Props> = ({ setDynamicTitle }) => {
                 <div
                   className="flex flex-col items-center gap-2 z-[2000] cursor-pointer"
                   onClick={() =>
-                    handleFileClick(router.pathname + "/" + child.name)
+                    handleFileClick(router.pathname === "/" ? router.pathname + child.name : router.pathname + "/" + child.name)
                   }
                 >
                   <File />
-                  <p className="text-xs cursor-pointer z-[2000]">
+                  <p className="text-xs cursor-pointer select-none z-[2000]">
                     {child.name}
                   </p>
                 </div>

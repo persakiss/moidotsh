@@ -36,7 +36,7 @@ const NavApp: React.FC<Props> = ({ setDynamicTitle }) => {
             <li className={`col-start-${index + 1} relative`} key={child.name}>
               {child.type === "folder" ? (
                 <Link href={child.path || "#"}>
-                  <div className="flex flex-col items-center gap-2 cursor-pointer">
+                  <div className="flex flex-col items-center gap-2 cursor-pointer z-[2000]">
                     <Folder />
                     <p className="text-xs">{child.name}</p>
                   </div>

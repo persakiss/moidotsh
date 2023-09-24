@@ -92,7 +92,7 @@ const MusicApp = () => {
 
 
   const youTubePlayer = (
-    <YouTube videoId="C4wwXZRgPWY" opts={opts} onReady={onReady} onStateChange={onStateChange} />
+    <YouTube opts={opts} onReady={onReady} onStateChange={onStateChange} />
   );
 
   if (!musicVisible) {
@@ -101,7 +101,7 @@ const MusicApp = () => {
 
   return (
     <>
-      <div>
+      <div className=''>
       {youTubePlayer}
         <div className='pt-3'>
           <div className='relative block h-6 w-full'>
@@ -113,7 +113,7 @@ const MusicApp = () => {
             <div className='absolute inset-0 bg-white rounded bg-opacity-80' style={{ width: `${progress}%` }}></div>
           </div>
         </div>
-        <div className='pt-5 flex justify-evenly w-[19rem]'>
+        <div className='pt-5 flex z-[9000] justify-evenly w-[19rem]'>
           <button onClick={() => player.previousVideo()}>
             <SkipBack />
           </button>

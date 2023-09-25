@@ -23,13 +23,71 @@ export default function HomePage({}: Props) {
     { message: "Vim + LaTeX", emoji: "✍️" },
   ];
 
-
   const kirbyFrames = [
     "`           ",
     "'           ",
     "-           ",
     ",           ",
     ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    "..          ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    "..          ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    "..          ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    ".           ",
+    "..          ",
+    ".          ?",
+    ".           ",
+    ".          ?",
+    ".          <",
+    ".         <(",
+    ".        <(O",
+    ".       <(O.",
+    ".      !<(O.",
+    ".       <(O.",
+    ".      !<(O.",
+    ".       <(O.",
+    ".      !<(O.",
+    ".       <(O.",
+    ".        <(O",
+    ".         <(",
+    ".          <",
     ".           ",
     ".           ",
     ".           ",
@@ -116,7 +174,9 @@ export default function HomePage({}: Props) {
 
         {/* Top Right Column */}
         <div className="col-span-1 bg-white p-2 rounded-lg flex flex-col items-center justify-center">
-          <h1 className="text-3xl font-bold text-gray-800">Hi, I&apos;m Arman!</h1>
+          <h1 className="text-3xl font-bold text-gray-800">
+            Hi, I&apos;m Arman!
+          </h1>
         </div>
       </div>
 

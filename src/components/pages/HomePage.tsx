@@ -34,7 +34,6 @@ export default function HomePage({}: Props) {
           <div className="text-2xl font-bold text-gray-800">🛠️</div>
           <p className="text-xs text-gray-600">Tech Stack</p>
         </div>
-        <div><FitbitSleepComponent /></div>
       </div>
     </>
   );

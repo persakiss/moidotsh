@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 
 const CLIENT_ID = process.env.CLIENT_ID || '23R9DM'; // Moved to env variables
-const CLIENT_SECRET = process.env.CLIENT_SECRET || '3651e6e7c9beb9ad051f79997fb8cf30'; // Moved to env variables
+const CLIENT_SECRET = process.env.CLIENT_SECRET || '5bc2541ff04afa72ac4fdd7fd730b7b2'; // Moved to env variables
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {

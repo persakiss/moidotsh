@@ -1,8 +1,10 @@
+// utils/fitbitAuth.ts
+
 import axios from 'axios';
 import querystring from 'querystring';
 
 const CLIENT_ID = '23R9DM'; // Replace with your Client ID
-const CLIENT_SECRET = '3651e6e7c9beb9ad051f79997fb8cf30'; // Replace with your Client Secret
+const CLIENT_SECRET = '5bc2541ff04afa72ac4fdd7fd730b7b2'; // Replace with your Client Secret
 const REDIRECT_URI = 'https://www.moi.sh/api/fitbit/callback'; // Replace with your Redirect URI
 
 export const getAuthorizationUrl = () => {
@@ -15,4 +17,5 @@ export const getAuthorizationUrl = () => {
   
     return `https://www.fitbit.com/oauth2/authorize?${params.toString()}`;
   };
+  
   

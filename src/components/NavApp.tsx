@@ -54,8 +54,13 @@ const NavApp: React.FC<Props> = ({ setDynamicTitle }) => {
     const title = getTitleFromFileName(fileName); // getTitleFromFileName
     setBrowserTitle(`Browser | ${title}`);
 
-    // Simulate loading delay
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    // Check if the browser is visible
+    const isBrowserVisible = useVisibilityStore.getState().browserVisible;
+
+    // Simulate loading delay only if the browser is visible
+    if (isBrowserVisible) {
+      await new Promise((resolve) => setTimeout(resolve, 2250));
+    }
 
     // Update content and title
     const content = getContent(fileName);
@@ -66,7 +71,7 @@ const NavApp: React.FC<Props> = ({ setDynamicTitle }) => {
     setBrowserLoading(false);
 
     // Only toggle visibility if the browser is not already visible
-    if (!useVisibilityStore.getState().browserVisible) {
+    if (!isBrowserVisible) {
       toggleBrowserVisibility();
     }
   };
@@ -101,7 +106,11 @@ const NavApp: React.FC<Props> = ({ setDynamicTitle }) => {
                 <div
                   className="flex flex-col items-center gap-2 z-[2000] cursor-pointer"
                   onClick={() =>
-                    handleFileClick(router.pathname === "/" ? router.pathname + child.name : router.pathname + "/" + child.name)
+                    handleFileClick(
+                      router.pathname === "/"
+                        ? router.pathname + child.name
+                        : router.pathname + "/" + child.name
+                    )
                   }
                 >
                   <File />

@@ -1,12 +1,18 @@
+import NotFoundKirby from "@/components/NotFoundKirby";
+import Contact from "@/components/pages/Contact";
+import HomePage from "@/components/pages/HomePage";
+import Projects from "@/components/pages/Projects";
+import Skills from "@/components/pages/Skills";
+
 // ../utils/contentMapping.tsx
 const contentMapping: { [key: string]: JSX.Element } = {
-  "/index.tsx": <h2>Home Page</h2>, // fix this later lol
-  "/contact/index.tsx": <h2>Contact Page</h2>,
-  "/projects/index.tsx": <h2>Projects</h2>,
-  "/skills/index.tsx": <h2>Skills</h2>
+  "/index.tsx": <HomePage />, // fix this later lol
+  "/projects/index.tsx": <Projects />,
+  "/contact/index.tsx": <Contact />,
+  "/skills/index.tsx": <Skills />,
 };
 
 export const getContent = (fileName: string) => {
   // console.log("Fetching content for:", fileName);
-  return contentMapping[fileName] || <h2>File not found</h2>;
+  return contentMapping[fileName] || <NotFoundKirby />;
 };

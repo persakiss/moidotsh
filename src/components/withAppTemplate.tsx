@@ -79,7 +79,7 @@ const withAppTemplate = <P extends object>(
           <div
             className={`p-3 absolute z-[2000] mt-[2rem] w-[20rem] flex self-center ${
               fullSize
-                ? "h-[21rem] bg-opacity-90 bg-white" // 3x taller and fully opaque for full-size apps
+                ? "h-[20rem] bg-opacity-90 bg-white" // 3x taller and fully opaque for full-size apps
                 : "h-[7rem] bg-opacity-30 bg-white" // Standard size and opacity
             } rounded-b`}
           >

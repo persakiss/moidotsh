@@ -1,3 +1,5 @@
+// Skills.tsx
+
 import React, { useState } from 'react';
 import SkillCard from './SkillCard';
 import SkillDetail from './SkillDetail';
@@ -11,10 +13,10 @@ const Skills = () => {
 
   return (
     <div className="grid grid-cols-2 gap-4 p-4 bg-gray-100">
-      <SkillCard title="Langs" onClick={() => handleSkillClick('Languages')} />
-      <SkillCard title="Frames" onClick={() => handleSkillClick('Frameworks')} />
+      <SkillCard title="Languages" onClick={() => handleSkillClick('Languages')} />
+      <SkillCard title="Frameworks" onClick={() => handleSkillClick('Frameworks')} />
       <SkillCard title="Tools" onClick={() => handleSkillClick('Tools')} />
-      <SkillCard title="Soft" onClick={() => handleSkillClick('Soft Skills')} />
+      <SkillCard title="Soft Skills" onClick={() => handleSkillClick('Soft Skills')} />
       {selectedSkill && <SkillDetail skill={selectedSkill} />}
     </div>
   );

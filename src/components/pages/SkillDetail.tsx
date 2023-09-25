@@ -1,3 +1,5 @@
+// SkilDetail.tsx
+
 import React from "react";
 
 type SkillDetailProps = {
@@ -11,7 +13,7 @@ const SkillDetail: React.FC<SkillDetailProps> = ({ skill }) => {
       <>
         <p>HTML, CSS, JS, TS</p>
         <p>
-          <span>Learning:</span> Rust, C, Mathematics
+          <span>Learning:</span> Rust, C
         </p>
       </>
     );

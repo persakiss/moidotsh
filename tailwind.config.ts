@@ -20,10 +20,16 @@ const config: Config = {
           "40%": { transform: "translateY(-20px)" },
           "60%": { transform: "translateY(-10px)" },
         },
+        fall: {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(100vh)' },
+        },
       },
       animation: {
         blinker: "blinker 1s linear infinite",
         bounce: 'bounce 1s ease-in-out',
+        fall: 'fall 3s infinite ease-in-out',
+
       },
       margin: {
         "-10": "-10px",

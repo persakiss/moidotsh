@@ -1,3 +1,5 @@
+//HomePage.tsx
+
 import React from "react";
 import Image from 'next/image';
 import my_portrait from '../../../public/pages/arman.jpg';

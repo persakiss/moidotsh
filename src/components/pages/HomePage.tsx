@@ -78,6 +78,7 @@ export default function HomePage({}: Props) {
     "",
   ];
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const timer = setInterval(() => {
       setKirbyFrame((prevFrame) => (prevFrame + 1) % kirbyFrames.length);

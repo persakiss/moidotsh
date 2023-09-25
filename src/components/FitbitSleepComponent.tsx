@@ -16,7 +16,6 @@ const FitbitSleepComponent: React.FC = () => {
 
   return (
     <div>
-      <h2>Fitbit Sleep Data</h2>
       {sleepData ? (
         <pre>{JSON.stringify(sleepData, null, 2)}</pre>
       ) : (

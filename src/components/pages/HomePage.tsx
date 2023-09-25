@@ -111,12 +111,12 @@ export default function HomePage({}: Props) {
             width={100}
             height={100}
           />
-          <p className="text-xs text-gray-600">That's Me!</p>
+          <p className="text-xs text-gray-600">That&apos;s Me!</p>
         </div>
 
         {/* Top Right Column */}
         <div className="col-span-1 bg-white p-2 rounded-lg flex flex-col items-center justify-center">
-          <h1 className="text-3xl font-bold text-gray-800">Hi, I'm Arman!</h1>
+          <h1 className="text-3xl font-bold text-gray-800">Hi, I&apos;m Arman!</h1>
         </div>
       </div>
 

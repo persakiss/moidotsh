@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { name, email, subject, body } = req.body;
 
     const msg = {
-      to: 'your-email@example.com', // Your email
+      to: 'arman@moi.sh', // Your email
       from: email, // Sender's email
       subject: `New Message from ${name}: ${subject}`,
       text: body,

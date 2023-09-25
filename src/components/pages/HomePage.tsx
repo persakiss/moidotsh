@@ -1,6 +1,7 @@
 import React from "react";
 import Image from 'next/image';
 import my_portrait from '../../../public/pages/arman.jpg';
+import FitbitSleepComponent from "../FitbitSleepComponent";
 
 type Props = {};
 
@@ -33,6 +34,7 @@ export default function HomePage({}: Props) {
           <div className="text-2xl font-bold text-gray-800">🛠️</div>
           <p className="text-xs text-gray-600">Tech Stack</p>
         </div>
+        <div><FitbitSleepComponent /></div>
       </div>
     </>
   );

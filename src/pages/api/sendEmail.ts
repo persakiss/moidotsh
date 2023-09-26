@@ -1,3 +1,5 @@
+// sendEmail.ts
+
 import sgMail from '@sendgrid/mail';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
@@ -20,10 +22,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     };
 
     try {
+        console.log("Sending email with body: ", req.body);  
       await sgMail.send(msg);
       res.status(200).send('Email sent successfully');
     } catch (error) {
-      console.error(error);
+        console.error("Error sending email: ", error);
       res.status(500).send('Error sending email');
     }
   } else {

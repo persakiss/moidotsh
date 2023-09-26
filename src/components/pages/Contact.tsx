@@ -1,3 +1,4 @@
+// Contact.tsx
 import React, { useState } from 'react';
 
 const Contact: React.FC = () => {
@@ -34,10 +35,13 @@ const Contact: React.FC = () => {
       body: JSON.stringify(formData),
     });
 
+    const data = await res.json();  // debug
+
     if (res.status === 200) {
-      console.log('Email sent successfully');
+      console.log('Email sent successfully', data);  // debug
     } else {
-      console.log('Error sending email');
+      console.log('Error sending email', data);  // debug
+      setError('Error sending email');  // debug
     }
   };
 

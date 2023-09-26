@@ -8,6 +8,7 @@ const Contact: React.FC = () => {
     body: '',
   });
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -29,19 +30,34 @@ const Contact: React.FC = () => {
       return;
     }
 
-    const res = await fetch('/api/sendEmail', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const res = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
-    const data = await res.json();  // debug
+      const text = await res.text();  // convert to plain text
 
-    if (res.status === 200) {
-      console.log('Email sent successfully', data);  // debug
-    } else {
-      console.log('Error sending email', data);  // debug
-      setError('Error sending email');  // debug
+      let data;
+      try {
+        data = JSON.parse(text);  // parse it to json
+      } catch (e) {
+        console.error("Couldn't parse JSON: ", text);
+        setError('Error parsing server response');
+        return;
+      }
+
+      if (res.status === 200) {
+        console.log('Email sent successfully', data);
+        setSuccess('Email sent successfully');  // <-- Add this line
+      } else {
+        console.log('Error sending email', data);
+        setError('Error sending email');
+      }
+    } catch (err) {
+      console.error('Fetch error:', err);
+      setError('Error sending request');
     }
   };
 
@@ -75,6 +91,7 @@ const Contact: React.FC = () => {
           />
           <div className="flex justify-between items-center">
             <span className="text-red-500">{error}</span>
+            <span className="text-green-500">{success}</span>
             <button type="submit" className="p-2 rounded bg-gray-500 text-white">
               Send Email
             </button>

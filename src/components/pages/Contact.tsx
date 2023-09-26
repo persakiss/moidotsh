@@ -9,6 +9,11 @@ const Contact: React.FC = () => {
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [placeholders, setPlaceholders] = useState({
+    name: 'Name',
+    email: 'Email',
+    body: 'Body',
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -50,7 +55,10 @@ const Contact: React.FC = () => {
 
       if (res.status === 200) {
         console.log('Email sent successfully', data);
-        setSuccess('Email sent successfully');  // <-- Add this line
+        setSuccess('Email sent successfully');
+        setPlaceholders(formData);  // Set placeholders to the last submitted data
+        setFormData({ name: '', email: '', body: '' });  // Clear the form
+
       } else {
         console.log('Error sending email', data);
         setError('Error sending email');
@@ -69,7 +77,7 @@ const Contact: React.FC = () => {
           <input
             type="text"
             name="name"
-            placeholder="Name"
+            placeholder={placeholders.name}
             value={formData.name}
             onChange={handleChange}
             className="p-2 rounded mb-2 w-full"
@@ -77,21 +85,21 @@ const Contact: React.FC = () => {
           <input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder={placeholders.email}
             value={formData.email}
             onChange={handleChange}
             className="p-2 rounded mb-2 w-full"
           />
           <textarea
             name="body"
-            placeholder="Body"
+            placeholder={placeholders.body}
             value={formData.body}
             onChange={handleChange}
             className="p-2 rounded mb-2 w-full"
           />
           <div className="flex justify-between items-center">
             <span className="text-red-500">{error}</span>
-            <span className="text-green-500">{success}</span>
+            <span className="text-green-500">{!error && success}</span>
             <button type="submit" className="p-2 rounded bg-gray-500 text-white">
               Send Email
             </button>

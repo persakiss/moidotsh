@@ -8,6 +8,7 @@ import Background from "@/components/Background";
 import Sun from "@/components/Sun";
 import { theme } from "@/styles/themes";
 import MountainReflection from "@/components/MountainReflection";
+import { Analytics } from "@vercel/analytics/react";
 
 type IndexPageProps = {};
 type IndexPageRef = React.ForwardedRef<HTMLDivElement>;
@@ -94,6 +95,8 @@ function IndexPage(props: IndexPageProps, ref: IndexPageRef) {
           className="h-1/5"
         ></div>
       </div>
+      <Analytics />
+
     </PageTransition>
   );
 }
